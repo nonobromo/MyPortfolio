@@ -17,14 +17,14 @@ function IconContainer() {
   return (
     <div className="icons-container">
       <ul>
-        {techIcons.map((icon) => {
-          return <li>{icon}</li>;
-        })}
+        {techIcons.map((icon, i) => (
+          <li key={`first-${i}`}>{icon}</li>
+        ))}
       </ul>
       <ul>
-        {techIcons.map((icon) => {
-          return <li>{icon}</li>;
-        })}
+        {techIcons.map((icon, i) => (
+          <li key={`second-${i}`}>{icon}</li>
+        ))}
       </ul>
     </div>
   );

@@ -25,7 +25,8 @@ function Header() {
         height: "15vh",
         display: "flex",
         alignItems: "center",
-      }}>
+      }}
+    >
       <Container
         maxWidth="lg"
         sx={{
@@ -33,7 +34,8 @@ function Header() {
           justifyContent: "space-between",
           flexDirection: { xs: "row-reverse", md: "row" },
           alignItems: "center",
-        }}>
+        }}
+      >
         <HeaderIcon />
         <MenuIcon
           sx={{ color: "#FFF", display: { xs: "block", md: "none" } }}
@@ -55,7 +57,8 @@ function Header() {
             py: 2,
             zIndex: 10,
             transition: "0.5s",
-          }}>
+          }}
+        >
           <Link
             to="/"
             onClick={openMenu}
@@ -63,7 +66,8 @@ function Header() {
               textDecoration: "none",
               color: "#FFF",
               fontSize: "20px",
-            }}>
+            }}
+          >
             Home
           </Link>
           {siteLinks.map((link) => (
@@ -91,12 +95,14 @@ function Header() {
             display: { xs: "none", md: "flex" },
             alignItems: "center",
             gap: 4,
-          }}>
+          }}
+        >
           <Box
             sx={{
               display: "flex",
               gap: 4,
-            }}>
+            }}
+          >
             <Link
               to="/"
               style={{
@@ -104,11 +110,14 @@ function Header() {
                 color: "#FFF",
                 fontWeight: 600,
                 fontSize: "28px",
-              }}>
+              }}
+            >
               Home
             </Link>
             {siteLinks.map((link) => {
-              return <HeaderLink text={link.text} to={link.to} />;
+              return (
+                <HeaderLink text={link.text} to={link.to} key={link.text} />
+              );
             })}
           </Box>
 

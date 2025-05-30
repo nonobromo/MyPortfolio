@@ -1,34 +1,36 @@
-import { Box, Container, Typography } from "@mui/material";
-import TechIcon from "../components/common/techicon";
+import { Container, Grid, Typography } from "@mui/material";
 
+import Basic from "../images/BasicMain.png";
+import Spendify from "../images/Spendify.png";
+import LiftOff from "../images/Lift-Off.webp";
+import Todoify from "..//images/Todoify.webp";
+import ProjectItem from "../components/common/projectItem";
 function ProjectsPage() {
   const items = [
     {
       title: "Basic",
       description: "CRM Task Magagment App",
-      createdWith: [
-        <TechIcon
-          text="React"
-          className="devicon-react-original colored"
-          techFontSize={24}
-        />,
-        <TechIcon
-          text="MongoDB"
-          className="devicon-mongodb-plain colored"
-          techFontSize={24}
-        />,
-        <TechIcon
-          text="NodeJS"
-          className="devicon-nodejs-plain-wordmark colored"
-          techFontSize={24}
-        />,
-      ],
+      image: Basic,
+      alt: "Basic",
     },
-    {},
-    {},
-    {},
-    {},
-    {},
+    {
+      title: "Spendify",
+      description: "Personal Expense Tracker",
+      image: Spendify,
+      alt: "Spendify",
+    },
+    {
+      title: "Lift Off",
+      description: "Business Card Manager ",
+      image: LiftOff,
+      alt: "LiftOff",
+    },
+    {
+      title: "Todoify",
+      description: "Todo List App",
+      image: Todoify,
+      alt: "Todoify",
+    },
   ];
 
   return (
@@ -36,28 +38,18 @@ function ProjectsPage() {
       <Typography variant="h1" fontSize="48px" gutterBottom>
         My Projects
       </Typography>
-
-      <div className="projects-container">
+      <Grid container spacing={12}>
         {items.map((item) => {
           return (
-            <Box
-              className="project-item"
-              sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-              <Typography variant="h2" fontSize="36px">
-                {item?.title}
-              </Typography>
-              <Typography variant="h3" fontSize="24px">
-                {item?.description}
-              </Typography>
-              <Box sx={{ display: "flex", gap: 3 }}>
-                {item?.createdWith?.map((tech) => {
-                  return tech;
-                })}
-              </Box>
-            </Box>
+            <ProjectItem
+              title={item.title}
+              description={item.description}
+              image={item.image}
+              alt={item.alt}
+            />
           );
         })}
-      </div>
+      </Grid>
     </Container>
   );
 }
