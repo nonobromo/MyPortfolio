@@ -7,6 +7,7 @@ import IconLink from "../components/common/iconLink";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import MenuIcon from "@mui/icons-material/Menu";
+import ClearIcon from "@mui/icons-material/Clear";
 import { useState } from "react";
 function Header() {
   const [open, setIsOpen] = useState<boolean>(false);
@@ -32,22 +33,30 @@ function Header() {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          flexDirection: { xs: "row-reverse", md: "row" },
+          flexDirection: { md: "row" },
           alignItems: "center",
         }}
       >
         <HeaderIcon />
-        <MenuIcon
-          sx={{ color: "#FFF", display: { xs: "block", md: "none" } }}
-          onClick={openMenu}
-        />
+        {open ? (
+          <ClearIcon
+            sx={{ color: "#FFF", display: { xs: "block", md: "none" } }}
+            onClick={openMenu}
+          />
+        ) : (
+          <MenuIcon
+            onClick={openMenu}
+            sx={{ color: "#FFF", display: { xs: "block", md: "none" } }}
+          />
+        )}
 
         <Box
           sx={{
             position: "absolute",
             top: "15vh",
-            left: open ? "0" : "-100%",
+            right: open ? "0" : "-100%",
             width: "100%",
+            height: "100%",
             backgroundColor: "#121212",
             color: "#FFF",
             display: { xs: "flex", md: "none" },
@@ -65,7 +74,7 @@ function Header() {
             style={{
               textDecoration: "none",
               color: "#FFF",
-              fontSize: "20px",
+              fontSize: "28px",
             }}
           >
             Home
@@ -75,7 +84,7 @@ function Header() {
           ))}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <DescriptionIcon sx={{ fontSize: "24px", color: "#FFF" }} />
-            <Typography fontSize="20px" color="#0672FF">
+            <Typography fontSize="28px" color="#0672FF">
               Resume
             </Typography>
           </Box>
