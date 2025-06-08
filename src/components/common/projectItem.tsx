@@ -7,11 +7,22 @@ type ProjectItemProps = {
   description: string | undefined;
   alt: string;
   icons?: string[];
+  projectUrl: string | undefined;
 };
 
-function ProjectItem({ title, description, image, alt }: ProjectItemProps) {
+function ProjectItem({
+  title,
+  description,
+  image,
+  alt,
+  projectUrl,
+}: ProjectItemProps) {
   return (
-    <Grid size={{ xs: 12, md: 6 }} sx={{ paddingBottom: "100px" }}>
+    <Grid
+      size={{ xs: 12, md: 6 }}
+      sx={{ paddingBottom: "100px", textDecoration: "none" }}
+      component="a"
+      href={projectUrl}>
       <Paper
         elevation={4}
         sx={{
@@ -25,16 +36,14 @@ function ProjectItem({ title, description, image, alt }: ProjectItemProps) {
             transform: "scale(1.02)",
           },
           paddingBottom: "40px",
-        }}
-      >
+        }}>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             gap: 4,
             alignItems: "center",
-          }}
-        >
+          }}>
           {image && (
             <Box
               component="img"
@@ -55,8 +64,7 @@ function ProjectItem({ title, description, image, alt }: ProjectItemProps) {
           <Typography
             variant="h3"
             component="h3"
-            fontSize={{ xs: "24px", md: "36px" }}
-          >
+            fontSize={{ xs: "24px", md: "36px" }}>
             {description}{" "}
           </Typography>
           <Box
@@ -64,14 +72,12 @@ function ProjectItem({ title, description, image, alt }: ProjectItemProps) {
               display: " flex",
               alignItems: "center",
               gap: 1,
-            }}
-          >
+            }}>
             <Typography
               variant="h4"
               component="h4"
               fontSize="24px"
-              color="#0672FF"
-            >
+              color="#0672FF">
               View Live Project
             </Typography>
             <OpenInNewIcon sx={{ color: "#0672ff" }} />
