@@ -3,6 +3,8 @@ type HeaderLinkProps = {
   to: string;
   fontSize?: string | number;
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  setActiveLink?: React.Dispatch<React.SetStateAction<string>>;
+  activeLink?: string;
 };
 
 function HeaderLink({ text, to, fontSize, setIsOpen }: HeaderLinkProps) {

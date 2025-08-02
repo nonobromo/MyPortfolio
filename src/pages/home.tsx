@@ -27,7 +27,7 @@ function Home() {
           fontWeight="600"
           variant="h1"
           component="h1"
-          marginTop="48px"
+          marginTop={{ xs: "80px", md: "48px" }}
         >
           Hi, I'm <span style={{ color: "#0672FF" }}>Noam</span> 👋
         </Typography>

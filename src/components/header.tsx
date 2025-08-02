@@ -6,6 +6,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { useState } from "react";
 function Header() {
   const [open, setIsOpen] = useState<boolean>(false);
+
   const siteLinks = [
     { text: "About", to: "#about" },
     { text: "Projects", to: "#projects" },
@@ -20,7 +21,6 @@ function Header() {
       sx={{
         width: "100%",
         display: "flex",
-        // alignItems: "center",
         position: "fixed",
         top: 0,
         left: 0,
