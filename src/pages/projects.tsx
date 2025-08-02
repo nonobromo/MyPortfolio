@@ -1,10 +1,5 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
-import Basic from "../images/BasicMain.png";
-import Spendify from "../images/Spendify.png";
-import LiftOff from "../images/Lift-Off.webp";
-import Todoify from "..//images/Todoify.webp";
-import ProjectItem from "../components/common/projectItem";
 function ProjectsPage() {
   // const items = [
   //   {
