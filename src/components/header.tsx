@@ -20,11 +20,12 @@ function Header() {
       sx={{
         width: "100%",
         display: "flex",
-        alignItems: "center",
+        // alignItems: "center",
         position: "fixed",
         top: 0,
         left: 0,
         zIndex: 1000,
+        height: "10vh",
       }}
     >
       <Container
@@ -63,7 +64,7 @@ function Header() {
             gap: 4,
             position: "absolute",
             right: open ? "0" : "-100%",
-            top: "5vh",
+            top: "10vh",
             width: "100%",
             height: "100vh",
             flexDirection: "column",
