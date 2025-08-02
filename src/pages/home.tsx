@@ -5,11 +5,12 @@ import IconContainer from "../components/iconsContainer";
 function Home() {
   return (
     <Box
+      id="home"
       sx={{
+        minHeight: "80vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: "48px",
       }}
     >
       <Container
@@ -21,11 +22,12 @@ function Home() {
         }}
       >
         <Typography
-          fontSize="60px"
+          fontSize={{ xs: "36px", md: "48px" }}
           textAlign="center"
           fontWeight="600"
           variant="h1"
           component="h1"
+          marginTop="48px"
         >
           Hi, I'm <span style={{ color: "#0672FF" }}>Noam</span> 👋
         </Typography>

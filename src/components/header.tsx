@@ -1,19 +1,15 @@
-import { Box, Container, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Box, Container } from "@mui/material";
 import HeaderLink from "./common/headerLink";
-import HeaderIcon from "./headerIcon";
-import DescriptionIcon from "@mui/icons-material/Description";
-import IconLink from "../components/common/iconLink";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useState } from "react";
 function Header() {
   const [open, setIsOpen] = useState<boolean>(false);
   const siteLinks = [
-    { text: "About", to: "/about" },
-    { text: "Projects", to: "/projects" },
+    { text: "About", to: "#about" },
+    { text: "Projects", to: "#projects" },
+    { text: "Contact", to: "#contact" },
   ];
 
   function openMenu() {
@@ -22,22 +18,27 @@ function Header() {
   return (
     <Box
       sx={{
-        width: "100vw",
-        height: "15vh",
+        width: "100%",
         display: "flex",
         alignItems: "center",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 1000,
       }}
     >
       <Container
-        maxWidth="lg"
+        maxWidth={false}
         sx={{
           display: "flex",
           justifyContent: "space-between",
           flexDirection: { md: "row" },
           alignItems: "center",
+          boxShadow: "0px 4px 0.5rem -0.1rem black",
+          backdropFilter: "blur(10px)",
         }}
       >
-        <HeaderIcon />
+        <HeaderLink text="< Noam />" to="#home" fontSize="36px" />
         {open ? (
           <ClearIcon
             sx={{ color: "#FFF", display: { xs: "block", md: "none" } }}
@@ -50,103 +51,32 @@ function Header() {
           />
         )}
 
+        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 4 }}>
+          {siteLinks.map((link) => {
+            return <HeaderLink text={link.text} to={link.to} />;
+          })}
+        </Box>
+
         <Box
           sx={{
-            position: "absolute",
-            top: "15vh",
-            right: open ? "0" : "-100%",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "#121212",
-            color: "#FFF",
             display: { xs: "flex", md: "none" },
+            gap: 4,
+            position: "absolute",
+            right: open ? "0" : "-100%",
+            top: "5vh",
+            width: "100%",
+            height: "100vh",
             flexDirection: "column",
             alignItems: "center",
-            gap: 2,
-            py: 2,
-            zIndex: 10,
+            backgroundColor: "#121212",
             transition: "0.5s",
           }}
         >
-          <Link
-            to="/"
-            onClick={openMenu}
-            style={{
-              textDecoration: "none",
-              color: "#FFF",
-              fontSize: "28px",
-            }}
-          >
-            Home
-          </Link>
-          {siteLinks.map((link) => (
-            <HeaderLink key={link.text} text={link.text} to={link.to} />
-          ))}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <DescriptionIcon sx={{ fontSize: "24px", color: "#FFF" }} />
-            <Typography fontSize="28px" color="#0672FF">
-              Resume
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", gap: 2 }}>
-            <IconLink
-              to="https://github.com/nonobromo"
-              icon={<GitHubIcon sx={{ fontSize: "24px", color: "#fff" }} />}
-            />
-            <IconLink
-              to="https://www.linkedin.com/in/noam-abramovich-316169276/"
-              icon={<LinkedInIcon sx={{ fontSize: "24px", color: "#fff" }} />}
-            />
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            display: { xs: "none", md: "flex" },
-            alignItems: "center",
-            gap: 4,
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              gap: 4,
-            }}
-          >
-            <Link
-              to="/"
-              style={{
-                textDecoration: "none",
-                color: "#FFF",
-                fontWeight: 600,
-                fontSize: "28px",
-              }}
-            >
-              Home
-            </Link>
-            {siteLinks.map((link) => {
-              return (
-                <HeaderLink text={link.text} to={link.to} key={link.text} />
-              );
-            })}
-          </Box>
-
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <DescriptionIcon sx={{ fontSize: "28px", color: "#FFF" }} />
-            <Typography fontSize="28px" color="#0672FF">
-              Resume
-            </Typography>
-          </Box>
-
-          <Box>
-            <IconLink
-              to="https://github.com/nonobromo"
-              icon={<GitHubIcon sx={{ fontSize: "28px", color: "#fff" }} />}
-            />
-            <IconLink
-              to="https://www.linkedin.com/in/noam-abramovich-316169276/"
-              icon={<LinkedInIcon sx={{ fontSize: "28px", color: "#fff" }} />}
-            />
-          </Box>
+          {siteLinks.map((link) => {
+            return (
+              <HeaderLink text={link.text} to={link.to} setIsOpen={setIsOpen} />
+            );
+          })}
         </Box>
       </Container>
     </Box>

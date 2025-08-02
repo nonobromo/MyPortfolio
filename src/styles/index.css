@@ -4,9 +4,11 @@
   box-sizing: border-box;
   font-family: satoshi;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  overflow-x: hidden !important;
   background: #1e2937;
   background: radial-gradient(
     circle,
@@ -14,6 +16,7 @@ body {
     rgba(0, 0, 0, 1) 100%
   );
   font-size: 16px;
+  overflow-x: hidden;
 }
 img {
   image-rendering: auto;
@@ -48,5 +51,11 @@ a:-webkit-any {
 @keyframes scroll {
   100% {
     transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    overflow-x: hidden !important;
   }
 }

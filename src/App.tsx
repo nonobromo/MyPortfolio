@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Header from "./components/header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
@@ -8,14 +8,17 @@ import ContactForm from "./pages/contact";
 
 function App() {
   return (
-    <Box sx={{ maxHeight: "100vh" }}>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/contact" element={<ContactForm />} />
-      </Routes>
+    <Box
+      sx={{
+        maxHeight: "100vh",
+      }}
+    >
+      <Container sx={{ display: "flex", flexDirection: "column" }}>
+        <Header />
+        <Home />
+        <About />
+        <ProjectsPage />
+      </Container>
     </Box>
   );
 }

@@ -1,22 +1,24 @@
-import { NavLink } from "react-router-dom";
-
 type HeaderLinkProps = {
   text: string;
   to: string;
+  fontSize?: string | number;
+  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-function HeaderLink({ text, to }: HeaderLinkProps) {
+function HeaderLink({ text, to, fontSize, setIsOpen }: HeaderLinkProps) {
   return (
-    <NavLink
-      to={to}
+    <a
+      onClick={() => setIsOpen?.((perv) => !perv)}
+      href={to}
       style={{
         textDecoration: "none",
         color: "#FFF",
         fontWeight: 600,
-        fontSize: "28px",
-      }}>
+        fontSize: fontSize ? fontSize : "28px",
+      }}
+    >
       {text}
-    </NavLink>
+    </a>
   );
 }
 
