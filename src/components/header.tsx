@@ -10,6 +10,7 @@ function Header() {
   const [activeLink, setActiveLink] = useState<string>("#home");
 
   const siteLinks = [
+    {text: "Home", to: "#home"},
     { text: "About", to: "#about" },
     { text: "Projects", to: "#projects" },
     { text: "Contact", to: "#contact" },
@@ -44,7 +45,6 @@ function Header() {
           to="#home"
           fontSize="36px"
           setIsOpen={setIsOpen}
-          setActiveLink={setActiveLink}
         />
         {open ? (
           <ClearIcon

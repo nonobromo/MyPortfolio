@@ -2,8 +2,7 @@ type HeaderLinkProps = {
   text: string;
   to: string;
   fontSize?: string | number;
-  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-  setActiveLink?: React.Dispatch<React.SetStateAction<string>>;
+  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>
 };
 
 function SiteLogo({
@@ -11,7 +10,6 @@ function SiteLogo({
   to,
   fontSize,
   setIsOpen,
-  setActiveLink,
 }: HeaderLinkProps) {
   return (
     <a
