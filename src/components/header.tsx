@@ -4,8 +4,10 @@ import HeaderLink from "./common/headerLink";
 import MenuIcon from "@mui/icons-material/Menu";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useState } from "react";
+import SiteLogo from "./common/siteLogo";
 function Header() {
   const [open, setIsOpen] = useState<boolean>(false);
+  const [activeLink, setActiveLink] = useState<string>("#home");
 
   const siteLinks = [
     { text: "About", to: "#about" },
@@ -26,8 +28,7 @@ function Header() {
         left: 0,
         zIndex: 1000,
         height: "10vh",
-      }}
-    >
+      }}>
       <Container
         maxWidth={false}
         sx={{
@@ -37,9 +38,14 @@ function Header() {
           alignItems: "center",
           boxShadow: "0px 4px 0.5rem -0.1rem black",
           backdropFilter: "blur(10px)",
-        }}
-      >
-        <HeaderLink text="< Noam />" to="#home" fontSize="36px" />
+        }}>
+        <SiteLogo
+          text="< Noam />"
+          to="#home"
+          fontSize="36px"
+          setIsOpen={setIsOpen}
+          setActiveLink={setActiveLink}
+        />
         {open ? (
           <ClearIcon
             sx={{ color: "#FFF", display: { xs: "block", md: "none" } }}
@@ -54,7 +60,14 @@ function Header() {
 
         <Box sx={{ display: { xs: "none", md: "flex" }, gap: 4 }}>
           {siteLinks.map((link) => {
-            return <HeaderLink text={link.text} to={link.to} />;
+            return (
+              <HeaderLink
+                text={link.text}
+                to={link.to}
+                activeLink={activeLink}
+                setActiveLink={setActiveLink}
+              />
+            );
           })}
         </Box>
 
@@ -71,8 +84,7 @@ function Header() {
             alignItems: "center",
             backgroundColor: "#121212",
             transition: "0.5s",
-          }}
-        >
+          }}>
           {siteLinks.map((link) => {
             return (
               <HeaderLink text={link.text} to={link.to} setIsOpen={setIsOpen} />

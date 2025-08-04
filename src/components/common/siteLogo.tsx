@@ -4,29 +4,22 @@ type HeaderLinkProps = {
   fontSize?: string | number;
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
   setActiveLink?: React.Dispatch<React.SetStateAction<string>>;
-  activeLink?: string;
 };
 
-function HeaderLink({
+function SiteLogo({
   text,
   to,
   fontSize,
   setIsOpen,
-  activeLink,
   setActiveLink,
 }: HeaderLinkProps) {
-  const isActive = to === activeLink;
-
   return (
     <a
-      onClick={() => {
-        setIsOpen?.((perv) => !perv);
-        setActiveLink?.(to);
-      }}
+      onClick={() => setIsOpen?.((perv) => !perv)}
       href={to}
       style={{
         textDecoration: "none",
-        color: isActive ? "#0672ff" : "#fff",
+        color: "#FFF",
         fontWeight: 600,
         fontSize: fontSize ? fontSize : "28px",
       }}>
@@ -35,4 +28,4 @@ function HeaderLink({
   );
 }
 
-export default HeaderLink;
+export default SiteLogo;
