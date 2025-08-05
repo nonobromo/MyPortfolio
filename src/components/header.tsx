@@ -10,7 +10,7 @@ function Header() {
   const [activeLink, setActiveLink] = useState<string>("#home");
 
   const siteLinks = [
-    {text: "Home", to: "#home"},
+    { text: "Home", to: "#home" },
     { text: "About", to: "#about" },
     { text: "Projects", to: "#projects" },
     { text: "Contact", to: "#contact" },
@@ -29,7 +29,8 @@ function Header() {
         left: 0,
         zIndex: 1000,
         height: "10vh",
-      }}>
+      }}
+    >
       <Container
         maxWidth={false}
         sx={{
@@ -39,12 +40,14 @@ function Header() {
           alignItems: "center",
           boxShadow: "0px 4px 0.5rem -0.1rem black",
           backdropFilter: "blur(10px)",
-        }}>
+        }}
+      >
         <SiteLogo
           text="< Noam />"
           to="#home"
           fontSize="36px"
           setIsOpen={setIsOpen}
+          setActiveLink={setActiveLink}
         />
         {open ? (
           <ClearIcon
@@ -84,7 +87,8 @@ function Header() {
             alignItems: "center",
             backgroundColor: "#121212",
             transition: "0.5s",
-          }}>
+          }}
+        >
           {siteLinks.map((link) => {
             return (
               <HeaderLink text={link.text} to={link.to} setIsOpen={setIsOpen} />

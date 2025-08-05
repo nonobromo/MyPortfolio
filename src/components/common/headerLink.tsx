@@ -29,7 +29,10 @@ function HeaderLink({
         color: isActive ? "#0672ff" : "#fff",
         fontWeight: 600,
         fontSize: fontSize ? fontSize : "28px",
-      }}>
+        borderBottom: isActive ? "2px solid #0672FF" : "",
+        transition: "all .5s ease",
+      }}
+    >
       {text}
     </a>
   );
