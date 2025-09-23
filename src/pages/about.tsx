@@ -4,8 +4,11 @@ import WorkIcon from "@mui/icons-material/Work";
 import DescriptionIcon from "@mui/icons-material/Description";
 function About() {
   return (
-    <Container maxWidth="lg" id="about" sx={{ minHeight: "100vh" }}>
-      <Typography variant="h1" sx={{ fontSize: "48px", marginTop: 14 }}>
+    <Container maxWidth="lg" id="about">
+      <Typography
+        variant="h1"
+        sx={{ fontSize: "48px", marginTop: 14, textAlign: "center" }}
+      >
         A Little about me
       </Typography>
 
