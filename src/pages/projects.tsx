@@ -1,4 +1,6 @@
-import { Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
+import TechIcon from "../components/common/techicon";
+import Spendify from "../images/Spendify.webp";
 
 function ProjectsPage() {
   // const items = [
@@ -36,11 +38,52 @@ function ProjectsPage() {
     <Container
       id="projects"
       maxWidth="lg"
-      sx={{ marginTop: "20px", minHeight: "100vh" }}
-    >
-      <Typography variant="h1" fontSize="48px" gutterBottom marginTop={16}>
+      sx={{
+        marginTop: "30px",
+        display: "flex",
+        flexDirection: "column",
+        border: "1px solid black",
+      }}>
+      <Typography variant="h2" fontSize="48px" gutterBottom marginTop={16}>
         My Projects
       </Typography>
+
+      <Box
+        sx={{
+          marginTop: 5,
+          display: "flex",
+          flexDirection: "column",
+          gap: 3,
+        }}>
+        <Typography variant="h3" component="h3">
+          Spendify
+        </Typography>
+        <Typography variant="h4" component="h4">
+          Personal Exepnse Tracker
+        </Typography>
+
+        <Box sx={{ display: "flex", gap: 3 }}>
+          <TechIcon
+            flexDirection="row"
+            className="devicon-react-original colored"
+            text="React"
+            techFontSize="20px"
+          />
+
+          <TechIcon
+            flexDirection="row"
+            className="devicon-typescript-plain colored"
+            text="Typescript"
+            techFontSize="20px"
+          />
+        </Box>
+
+        <Box
+          component="img"
+          src={Spendify}
+          sx={{ inlineSize: "500px", objectFit: "cover" }}
+        />
+      </Box>
     </Container>
   );
 }

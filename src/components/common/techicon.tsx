@@ -18,22 +18,26 @@ type TechIconProps = {
     | "devicon-mongodb-plain colored"
     | "devicon-nodejs-plain-wordmark colored";
   techFontSize?: string | number;
+  flexDirection?: "column" | "row";
 };
 
-function TechIcon({ className, text, techFontSize }: TechIconProps) {
+function TechIcon({
+  className,
+  text,
+  techFontSize,
+  flexDirection,
+}: TechIconProps) {
   return (
     <Box
       sx={{
         display: "flex",
-        flexDirection: "column",
+        flexDirection: flexDirection,
         gap: 1,
         alignItems: "center",
-      }}
-    >
+      }}>
       <i
         className={`${className}`}
-        style={{ fontSize: techFontSize ? techFontSize : "48px" }}
-      ></i>
+        style={{ fontSize: techFontSize ? techFontSize : "48px" }}></i>
       <Typography component="span">{text}</Typography>
     </Box>
   );
