@@ -25,6 +25,12 @@ function ProjectsPage() {
           techFontSize="36px"
           className="devicon-typescript-plain colored"
         />,
+        <TechIcon
+          text="MUI"
+          flexDirection="column"
+          techFontSize="36px"
+          className="devicon-materialui-plain colored"
+        />,
       ],
     },
     {
@@ -35,16 +41,22 @@ function ProjectsPage() {
       projectUrl: "https://wordaday.onrender.com/",
       icons: [
         <TechIcon
-          className="devicon-react-original colored"
-          text="React"
+          className="devicon-mongodb-plain colored"
+          text="MongoDB"
           flexDirection="column"
           techFontSize="36px"
         />,
         <TechIcon
-          text="Typescript"
+          text="Express"
           flexDirection="column"
           techFontSize="36px"
-          className="devicon-typescript-plain colored"
+          className="devicon-express-original colored"
+        />,
+        <TechIcon
+          text="React"
+          flexDirection="column"
+          techFontSize="36px"
+          className="devicon-react-original colored"
         />,
         <TechIcon
           text="NodeJS"
