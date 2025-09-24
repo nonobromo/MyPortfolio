@@ -3,6 +3,7 @@ import TechIcon from "../components/common/techicon";
 import Spendify from "../images/Spendify.png";
 import Wordaday from "../images/Wordaday.png";
 import ProjectItem from "../components/common/projectItem";
+import { useEffect } from "react";
 function ProjectsPage() {
   const items = [
     {
@@ -67,6 +68,29 @@ function ProjectsPage() {
       ],
     },
   ];
+
+  useEffect(() => {
+    let itemElements = [];
+    const items = document.querySelectorAll(".css-qfbm96-MuiGrid-root");
+
+    itemElements = [...items].filter((el): el is HTMLElement => el !== null);
+
+    const obvserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("fade-in", entry.isIntersecting);
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    itemElements.forEach((item) => obvserver.observe(item));
+
+    return () => {
+      itemElements.forEach((item) => obvserver.unobserve(item));
+      obvserver.disconnect();
+    };
+  }, []);
 
   return (
     <Container

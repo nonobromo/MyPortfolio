@@ -3,7 +3,7 @@ import HeaderLink from "./common/headerLink";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SiteLogo from "./common/siteLogo";
 function Header() {
   const [open, setIsOpen] = useState<boolean>(false);
@@ -19,6 +19,31 @@ function Header() {
   function openMenu() {
     setIsOpen((perv) => !perv);
   }
+
+  useEffect(() => {
+    const sections = siteLinks
+      .map((section) => document.querySelector(section.to))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(`#${entry.target.id}`);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <Box
       sx={{
@@ -47,7 +72,6 @@ function Header() {
           to="#home"
           fontSize="36px"
           setIsOpen={setIsOpen}
-          setActiveLink={setActiveLink}
         />
         {open ? (
           <ClearIcon
@@ -68,7 +92,6 @@ function Header() {
                 text={link.text}
                 to={link.to}
                 activeLink={activeLink}
-                setActiveLink={setActiveLink}
               />
             );
           })}

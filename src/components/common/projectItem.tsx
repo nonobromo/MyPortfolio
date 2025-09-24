@@ -25,7 +25,7 @@ function ProjectItem({
       spacing={2}
       sx={{
         borderBottom: "1px solid #ccc",
-        overflow: "hidden",
+        overflow: { xs: "hidden" },
         p: 2,
       }}
     >
@@ -46,7 +46,7 @@ function ProjectItem({
 
       <Grid
         size={{ xs: 12, md: 4 }}
-        sx={{ display: "flex", flexDirection: "column" }}
+        sx={{ display: "flex", flexDirection: "column", gap: "10px" }}
       >
         <Stack spacing={2}>
           <Typography
@@ -59,7 +59,10 @@ function ProjectItem({
           <Typography
             variant="h4"
             component="h4"
-            sx={{ textAlign: { xs: "center", md: "left" } }}
+            sx={{
+              textAlign: { xs: "center", md: "left" },
+              fontSize: { xs: "1.5rem", md: "2rem" },
+            }}
           >
             {description}
           </Typography>
@@ -80,6 +83,7 @@ function ProjectItem({
           href={projectUrl}
           fontSize="24px"
           justifyContent="flex-start"
+          alignSelf={{ xs: "center", md: "flex-start" }}
           mt="auto"
         >
           View Live Project
