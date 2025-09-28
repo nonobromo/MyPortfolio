@@ -25,7 +25,6 @@ function ProjectItem({
       spacing={2}
       sx={{
         borderBottom: "1px solid #ccc",
-        overflow: { xs: "hidden" },
         p: 2,
       }}
     >
