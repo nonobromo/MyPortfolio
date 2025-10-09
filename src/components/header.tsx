@@ -54,8 +54,7 @@ function Header() {
         left: 0,
         zIndex: 1000,
         height: "10vh",
-      }}
-    >
+      }}>
       <Container
         maxWidth={false}
         sx={{
@@ -65,8 +64,7 @@ function Header() {
           alignItems: "center",
           boxShadow: "0px 4px 0.5rem -0.1rem black",
           backdropFilter: "blur(10px)",
-        }}
-      >
+        }}>
         <SiteLogo
           text="< Noam />"
           to="#home"
@@ -110,8 +108,7 @@ function Header() {
             alignItems: "center",
             backgroundColor: "#121212",
             transition: "0.5s",
-          }}
-        >
+          }}>
           {siteLinks.map((link) => {
             return (
               <HeaderLink text={link.text} to={link.to} setIsOpen={setIsOpen} />

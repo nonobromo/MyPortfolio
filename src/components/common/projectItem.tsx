@@ -1,6 +1,6 @@
 import { Box, Grid, Link, Stack, Typography } from "@mui/material";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 type ProjectItemProps = {
   image?: string;
@@ -19,15 +19,35 @@ function ProjectItem({
   icons,
   projectUrl,
 }: ProjectItemProps) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        // observer.unobserve(entry.target);
+      }
+    });
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Grid
+      ref={ref}
+      className={isVisible ? "fade-in" : ""}
       container
       spacing={2}
       sx={{
         borderBottom: "1px solid #ccc",
         p: 2,
-      }}
-    >
+      }}>
       <Grid size={{ xs: 12, md: 8 }}>
         <Box
           component="img"
@@ -45,14 +65,12 @@ function ProjectItem({
 
       <Grid
         size={{ xs: 12, md: 4 }}
-        sx={{ display: "flex", flexDirection: "column", gap: "10px" }}
-      >
+        sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         <Stack spacing={2}>
           <Typography
             variant="h3"
             component="h3"
-            sx={{ textAlign: { xs: "center", md: "left" }, color: "#0672FF" }}
-          >
+            sx={{ textAlign: { xs: "center", md: "left" }, color: "#0672FF" }}>
             {title}
           </Typography>
           <Typography
@@ -61,8 +79,7 @@ function ProjectItem({
             sx={{
               textAlign: { xs: "center", md: "left" },
               fontSize: { xs: "1.5rem", md: "2rem" },
-            }}
-          >
+            }}>
             {description}
           </Typography>
           <Box
@@ -70,8 +87,7 @@ function ProjectItem({
               display: "flex",
               gap: "20px",
               justifyContent: { xs: "center", md: "flex-start" },
-            }}
-          >
+            }}>
             {icons?.map((icon) => {
               return icon;
             })}
@@ -83,8 +99,7 @@ function ProjectItem({
           fontSize="24px"
           justifyContent="flex-start"
           alignSelf={{ xs: "center", md: "flex-start" }}
-          mt="auto"
-        >
+          mt="auto">
           View Live Project
         </Link>
       </Grid>
