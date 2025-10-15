@@ -16,7 +16,6 @@ body {
     rgba(0, 0, 0, 1) 100%
   );
   font-size: 16px;
-  overflow-x: hidden !important;
 }
 img {
   image-rendering: auto;
