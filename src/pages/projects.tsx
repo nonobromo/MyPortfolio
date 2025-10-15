@@ -3,7 +3,6 @@ import TechIcon from "../components/common/techicon";
 import Spendify from "../images/Spendify.png";
 import Wordaday from "../images/Wordaday.png";
 import ProjectItem from "../components/common/projectItem";
-import { useEffect } from "react";
 function ProjectsPage() {
   const items = [
     {
@@ -69,28 +68,28 @@ function ProjectsPage() {
     },
   ];
 
-  // useEffect(() => {
-  //   let itemElements = [];
-  //   const items = document.querySelectorAll("");
+  useEffect(() => {
+    let itemElements = [];
+    const items = document.querySelectorAll(".css-qfbm96-MuiGrid-root");
 
-  //   itemElements = [...items].filter((el): el is HTMLElement => el !== null);
+    itemElements = [...items].filter((el): el is HTMLElement => el !== null);
 
-  //   const obvserver = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         entry.target.classList.toggle("fade-in", entry.isIntersecting);
-  //       });
-  //     },
-  //     { threshold: 0.6 }
-  //   );
+    const obvserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("fade-in", entry.isIntersecting);
+        });
+      },
+      { threshold: 0.6 }
+    );
 
-  //   itemElements.forEach((item) => obvserver.observe(item));
+    itemElements.forEach((item) => obvserver.observe(item));
 
-  //   return () => {
-  //     itemElements.forEach((item) => obvserver.unobserve(item));
-  //     obvserver.disconnect();
-  //   };
-  // }, []);
+    return () => {
+      itemElements.forEach((item) => obvserver.unobserve(item));
+      obvserver.disconnect();
+    };
+  }, []);
 
   return (
     <Container
@@ -100,17 +99,23 @@ function ProjectsPage() {
         display: "flex",
         flexDirection: "column",
         minHeight: "100vh",
-        gap: "60px",
       }}
     >
       <Typography
         variant="h2"
-        sx={{ fontSize: "48px", marginTop: 30, textAlign: "center" }}
+        sx={{ fontSize: "48px", marginTop: 20, textAlign: "center" }}
       >
         My Projects
       </Typography>
 
-      <Container sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+      <Container
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          marginTop: 5,
+        }}
+      >
         {items.map((item) => {
           return (
             <ProjectItem

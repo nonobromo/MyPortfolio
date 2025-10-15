@@ -2,13 +2,13 @@ import { Box, Container, Typography } from "@mui/material";
 import SchoolIcon from "@mui/icons-material/School";
 import WorkIcon from "@mui/icons-material/Work";
 import DescriptionIcon from "@mui/icons-material/Description";
+
 function About() {
   return (
     <Container maxWidth="lg" id="about">
       <Typography
         variant="h1"
-        sx={{ fontSize: "48px", marginTop: 14, textAlign: "center" }}
-      >
+        sx={{ fontSize: "48px", marginTop: 14, textAlign: "center" }}>
         A Little about me
       </Typography>
 
@@ -18,8 +18,7 @@ function About() {
           display: "flex",
           flexDirection: "column",
           gap: 2,
-        }}
-      >
+        }}>
         <Typography variant="h2" sx={{ fontSize: "36px", color: "#0672FF" }}>
           My Education <SchoolIcon />
         </Typography>
@@ -44,9 +43,13 @@ function About() {
       <Box sx={{ marginTop: 4 }}>
         <Box
           sx={{ display: "flex", alignItems: "center", gap: 1 }}
-          component="a"
-        >
-          <Typography fontSize={{ xs: "24px", md: "36px" }} color="#0672FF">
+          component="a">
+          <Typography
+            fontSize={{ xs: "24px", md: "36px" }}
+            color="#0672FF"
+            component="a"
+            href="../assets/Noam Abramovich FS CV.pdf"
+            download="../assets/Noam Abramovich FS CV.pdf">
             Check Out My Resume
           </Typography>
           <DescriptionIcon sx={{ fontSize: "36px", color: "#FFF" }} />
