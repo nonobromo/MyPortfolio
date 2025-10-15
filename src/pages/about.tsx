@@ -8,7 +8,8 @@ function About() {
     <Container maxWidth="lg" id="about">
       <Typography
         variant="h1"
-        sx={{ fontSize: "48px", marginTop: 14, textAlign: "center" }}>
+        sx={{ fontSize: "48px", marginTop: 14, textAlign: "center" }}
+      >
         A Little about me
       </Typography>
 
@@ -18,7 +19,8 @@ function About() {
           display: "flex",
           flexDirection: "column",
           gap: 2,
-        }}>
+        }}
+      >
         <Typography variant="h2" sx={{ fontSize: "36px", color: "#0672FF" }}>
           My Education <SchoolIcon />
         </Typography>
@@ -26,7 +28,7 @@ function About() {
           Studied Full-Stack development in HackerU from 2023-2025.
         </Typography>
 
-        <Typography variant="h3" sx={{ fontSize: "30px", color: "#0672FF" }}>
+        <Typography variant="h3" sx={{ fontSize: "24px", color: "#0672FF" }}>
           {" "}
           My current occupation <WorkIcon />
         </Typography>
@@ -41,15 +43,14 @@ function About() {
       </Box>
 
       <Box sx={{ marginTop: 4 }}>
-        <Box
-          sx={{ display: "flex", alignItems: "center", gap: 1 }}
-          component="a">
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <Typography
             fontSize={{ xs: "24px", md: "36px" }}
             color="#0672FF"
             component="a"
             href="../assets/Noam Abramovich FS CV.pdf"
-            download="../assets/Noam Abramovich FS CV.pdf">
+            download="../assets/Noam Abramovich FS CV.pdf"
+          >
             Check Out My Resume
           </Typography>
           <DescriptionIcon sx={{ fontSize: "36px", color: "#FFF" }} />

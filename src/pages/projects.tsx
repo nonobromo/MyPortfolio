@@ -3,6 +3,7 @@ import TechIcon from "../components/common/techicon";
 import Spendify from "../images/Spendify.png";
 import Wordaday from "../images/Wordaday.png";
 import ProjectItem from "../components/common/projectItem";
+import { useEffect } from "react";
 function ProjectsPage() {
   const items = [
     {
@@ -18,18 +19,21 @@ function ProjectsPage() {
           text="React"
           flexDirection="column"
           techFontSize="36px"
+          key="react"
         />,
         <TechIcon
           text="Typescript"
           flexDirection="column"
           techFontSize="36px"
           className="devicon-typescript-plain colored"
+          key="typescript"
         />,
         <TechIcon
           text="MUI"
           flexDirection="column"
           techFontSize="36px"
           className="devicon-materialui-plain colored"
+          key="mui"
         />,
       ],
     },
@@ -45,24 +49,28 @@ function ProjectsPage() {
           text="MongoDB"
           flexDirection="column"
           techFontSize="36px"
+          key="mongodb"
         />,
         <TechIcon
           text="Express"
           flexDirection="column"
           techFontSize="36px"
           className="devicon-express-original colored"
+          key="express"
         />,
         <TechIcon
           text="React"
           flexDirection="column"
           techFontSize="36px"
           className="devicon-react-original colored"
+          key="react"
         />,
         <TechIcon
           text="NodeJS"
           flexDirection="column"
           techFontSize="36px"
           className="devicon-nodejs-plain-wordmark colored"
+          key="nodejs"
         />,
       ],
     },
@@ -125,6 +133,7 @@ function ProjectsPage() {
               description={item.description}
               image={item.image}
               projectUrl={item.projectUrl}
+              key={item.title}
             />
           );
         })}
