@@ -15,7 +15,12 @@ function ContactForm() {
         minHeight: "100vh",
         gap: "20px",
       }}>
-      <Typography variant="h2" component="h2" textAlign="center" marginTop={14}>
+      <Typography
+        variant="h2"
+        component="h2"
+        textAlign="center"
+        marginTop={14}
+        fontSize={{ xs: "24px", md: "48px" }}>
         Feel Free To Contact Me!
       </Typography>
       <ContactMethod

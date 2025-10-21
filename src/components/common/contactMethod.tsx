@@ -26,7 +26,10 @@ function ContactMethod({
         marginTop: 5,
       }}>
       <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
-        <Typography variant="h3" component="h3" fontSize="36px">
+        <Typography
+          variant="h3"
+          component="h3"
+          fontSize={{ xs: "20px", md: "36px" }}>
           {" "}
           {title}
         </Typography>
@@ -39,7 +42,7 @@ function ContactMethod({
             display: "flex",
             gap: "5px",
             alignItems: "center",
-            fontSize: "1.2rem",
+            fontSize: "1rem",
           }}>
           {secondaryTitle}
 
@@ -47,7 +50,7 @@ function ContactMethod({
             sx={{
               color: "#0a66c2",
               textDecoration: "none",
-              fontSize: "1.2rem",
+              fontSize: "1rem",
             }}
             component="a"
             href={url}>
