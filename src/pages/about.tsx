@@ -8,8 +8,7 @@ function About() {
     <Container maxWidth="lg" id="about">
       <Typography
         variant="h1"
-        sx={{ fontSize: "48px", marginTop: 14, textAlign: "center" }}
-      >
+        sx={{ fontSize: "48px", marginTop: 14, textAlign: "center" }}>
         A Little about me
       </Typography>
 
@@ -19,8 +18,7 @@ function About() {
           display: "flex",
           flexDirection: "column",
           gap: 2,
-        }}
-      >
+        }}>
         <Typography variant="h2" sx={{ fontSize: "36px", color: "#0672FF" }}>
           My Education <SchoolIcon />
         </Typography>
@@ -48,9 +46,8 @@ function About() {
             fontSize={{ xs: "24px", md: "36px" }}
             color="#0672FF"
             component="a"
-            href="../assets/Noam Abramovich FS CV.pdf"
-            download="../assets/Noam Abramovich FS CV.pdf"
-          >
+            href="/Noam_Abramovich_FS_CV.pdf"
+            download="/Noam_Abramovich_FS_CV.pdf">
             Check Out My Resume
           </Typography>
           <DescriptionIcon sx={{ fontSize: "36px", color: "#FFF" }} />
