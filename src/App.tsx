@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import ProjectsPage from "./pages/projects";
 import ContactForm from "./pages/contact";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <ProjectsPage />
         <ContactForm />
       </Container>
+      <Footer />
     </Box>
   );
 }

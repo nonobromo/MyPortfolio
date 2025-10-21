@@ -2,6 +2,7 @@ import { Container, Typography } from "@mui/material";
 import TechIcon from "../components/common/techicon";
 import Spendify from "../images/Spendify.png";
 import Wordaday from "../images/Wordaday.png";
+import Basic from "../images/Basic.png";
 import ProjectItem from "../components/common/projectItem";
 import { useEffect } from "react";
 function ProjectsPage() {
@@ -74,6 +75,43 @@ function ProjectsPage() {
         />,
       ],
     },
+    {
+      title: "Basic",
+      description: "Emlpoyee task mangement",
+      image: Basic,
+      alt: "Basic",
+      projectUrl: "https://basic-wzvv.onrender.com/",
+      icons: [
+        <TechIcon
+          className="devicon-mongodb-plain colored"
+          text="MongoDB"
+          flexDirection="column"
+          techFontSize="36px"
+          key="mongodb"
+        />,
+        <TechIcon
+          text="Express"
+          flexDirection="column"
+          techFontSize="36px"
+          className="devicon-express-original colored"
+          key="express"
+        />,
+        <TechIcon
+          text="React"
+          flexDirection="column"
+          techFontSize="36px"
+          className="devicon-react-original colored"
+          key="react"
+        />,
+        <TechIcon
+          text="NodeJS"
+          flexDirection="column"
+          techFontSize="36px"
+          className="devicon-nodejs-plain-wordmark colored"
+          key="nodejs"
+        />,
+      ],
+    },
   ];
 
   useEffect(() => {
@@ -101,18 +139,16 @@ function ProjectsPage() {
 
   return (
     <Container
-      id="projects"
       maxWidth="lg"
       sx={{
         display: "flex",
         flexDirection: "column",
         minHeight: "100vh",
-      }}
-    >
+      }}>
       <Typography
+        id="projects"
         variant="h2"
-        sx={{ fontSize: "48px", marginTop: 20, textAlign: "center" }}
-      >
+        sx={{ fontSize: "48px", marginTop: 20, textAlign: "center" }}>
         My Projects
       </Typography>
 
@@ -122,8 +158,7 @@ function ProjectsPage() {
           flexDirection: "column",
           gap: "10px",
           marginTop: 5,
-        }}
-      >
+        }}>
         {items.map((item) => {
           return (
             <ProjectItem
