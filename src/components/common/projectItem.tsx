@@ -48,16 +48,20 @@ function ProjectItem({
         borderBottom: "1px solid #ccc",
         p: 2,
       }}>
-      <Grid size={{ xs: 12, md: 8 }}>
-        <Box
-          component="img"
-          src={image}
-          alt={alt}
-          sx={{
-            maxInlineSize: "100%",
-            display: "inline-block",
-          }}
-        />
+      <Grid
+        size={{ xs: 12, md: 8 }}
+        sx={{ display: "flex", justifyContent: "center" }}>
+        <Box sx={{ width: "500px", height: "auto" }}>
+          <Box
+            component="img"
+            src={image}
+            alt={alt}
+            sx={{
+              maxInlineSize: "100%",
+              display: "block",
+            }}
+          />
+        </Box>
       </Grid>
 
       <Grid
