@@ -54,11 +54,8 @@ function ProjectItem({
           src={image}
           alt={alt}
           sx={{
-            width: { xs: "100%", md: "60%" },
-            height: "400px",
-            objectFit: "cover",
-            objectPosition: { xs: "center", md: "top left" },
-            borderRadius: 6,
+            maxInlineSize: "100%",
+            display: "inline-block",
           }}
         />
       </Grid>
